@@ -82,86 +82,45 @@ nav a {
   text-decoration: underline;
 }
 
-/* Hamburger menu
+.menu-container {
+  position: relative;
+  display: inline-block;  /* makes button inline and allows dropdown positioning */
+}
+
 .hamburger {
   background: none;
   border: none;
-  color: white;
   font-size: 2rem;
+  color: white;
   cursor: pointer;
-}
-.hamburger {
-  display: block;
-}
-
-/* Dropdown Menu */
-/* .dropdown {
-  display: none;
-  position: absolute;
-  right: 1rem;
-  top: 60px; 
-  background: white;
-  color: black;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  border-radius: 6px;
-  overflow: hidden;
-  margin-top: 0.5rem;
   z-index: 1000;
 }
 
-.dropdown[style*="display: block"] {
-  display: block !important;
+.dropdown {
+  display: none;          /* hidden by default */
+  position: absolute;
+  right: 0;
+  top: 100%;              /* appear just below the button */
+  background: white;
+  color: black;
+  min-width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 6px;
+}
+
+.menu-container:hover .dropdown {
+  display: block;         /* show on hover */
 }
 
 .dropdown a {
-  display: block; 
-  padding: 10px 15px;
+  display: block;
+  padding: 12px 18px;
   text-decoration: none;
   color: #002147;
 }
 
 .dropdown a:hover {
   background: #eee;
-} */
-
-main {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    min-height: 60vh;
-}
-
-aside {
-  background: #f4f4f4;
-  padding: 1rem;
-}
-
-h2 {
-    color: #001F3F;
-    margin-bottom: 1.5rem;
-    font-size: 2.2rem;
-    border-bottom: 2px solid #003366;
-    padding-bottom: 0.5rem;
-}
-
-p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-button {
-    background-color: #002147;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #003366;
 }
 
 
