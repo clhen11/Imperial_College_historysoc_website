@@ -524,7 +524,7 @@ footer {
 
 /* for different screen sizes */
 
-/* Tablet size */
+/* Tablet */
 
 @media (max-width: 992px) {
   .content {
@@ -540,7 +540,7 @@ footer {
 
   header h1 {
     font-size: 1.5rem; /* Smaller heading */
-    transform: translateY(-90px); /* Adjust position */
+    transform: translateY(-90px); 
   }
   
   .main-nav {
@@ -581,6 +581,7 @@ footer {
     text-align: left;
     margin: 0 0.5rem;
     flex: 1;
+    transform: translateY(-50px);
   }
 
   .menu-container {
