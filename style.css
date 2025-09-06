@@ -5,6 +5,16 @@
   font-style: normal;
 }
 
+html, body {
+  margin: 0;
+  display: flex;
+  flex-direction: column; 
+}
+
+main {
+  flex: 1;  /*push footer down */
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -26,6 +36,8 @@ header {
 header {
   position: relative;
 }
+
+/* HOMEPAGE */
 
 .content {
   display: grid;
@@ -155,6 +167,25 @@ body {
   transform: scale(1.05);      /*  zoom */
 }
 
+/* main content  */
+
+#intro {
+  position: relative; 
+  text-align: center;
+  padding: 0rem 2rem;
+  color: #002147;
+}
+
+.intro-text h2 { /* Welcome! */
+  margin-bottom: 0rem;
+}
+
+.intro-text p {
+  font-weight: 600;   /* semi-bold */
+  font-size: 1.1rem; 
+  margin-bottom: 1.5rem;
+}
+
 /* Side bar elements  */
 
 .sidebar {
@@ -281,6 +312,215 @@ footer {
   font-size: 1rem;
 }
 
+/* ================================================= */
+
+/* ABOUT US PAGE  */
+.about-text {
+  background-color: rgba(255, 255, 255, 0.5); /* semi-transparent dark */
+  color: #002147; /*TEXT*/
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  text-shadow: 1px 1px 3px rgba(223, 223, 223, 0.8);
+  max-width: 800px;     /* optional: limit width */
+  margin: 2rem auto;    /* center on page */
+  line-height: 1.6;     /* easier to read */
+}
+
+/* ================================================= */
+/* upcoming events */
+#events {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+#events h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #002147;
+}
+
+.event-card {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.02);
+}
+
+.event-card img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+.event-details {
+  flex: 1;
+  padding: 1rem 1.5rem;
+}
+
+.event-details h3 {
+  margin-top: 0;
+  color: #002147;
+}
+
+.event-date, .event-location {
+  font-weight: bold;
+  color: #444;
+  margin: 0.5rem 0;
+}
+
+.event-description {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.event-details .btn {
+  background-color: #002147;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.event-details .btn:hover {
+  background-color: #003366;
+}
+
+
+/* ================================================= */
+/* Meet the committee */
+#committee {
+  /* padding: 1rem ; */
+  text-align: center;
+}
+
+#committee h2 {
+  font-size: 2.2rem;
+  color: #002147;
+}
+
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  max-width: 1200px; 
+  margin: 0 auto;    
+  padding: 0 2rem;
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+  width: 80%;
+  height: 600px;      
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card img {
+  width: 90%;
+  height: 350px;    
+  object-fit: cover;
+  align-self: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.profile-card h3,
+.profile-card h4 {
+  margin: 0.3rem 0;   
+  line-height: 1.2;  
+  color: #002147;
+}
+
+.profile-card .role {
+  font-style: italic;
+  color: #002147ae;
+  font-size: 1.1rem;
+}
+
+.profile-card p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+  color: #002147;
+}
+
+.profile-card .bio {
+  font-size: 0.95rem;
+  color: #002147b9;
+  line-height: 1.2;
+  margin-top: auto; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* ================================================= */
+/* Contact page */
+#contact {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+#contact h2 {
+  font-size: 2.2rem;
+  color: #002147;
+  margin-bottom: 2rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card i {
+  font-size: 2.5rem;
+  color: #002147;
+  margin-bottom: 1rem;
+}
+
+.contact-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #002147;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* ================================================= */
 
 /* for different screen sizes */
 
