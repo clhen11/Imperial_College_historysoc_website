@@ -480,6 +480,11 @@ footer {
   text-overflow: ellipsis;
 }
 
+/* Put the label on its own line, answer on the next line */
+.profile-card .bio strong {
+  display: block;
+}
+
 
 /* ================================================= */
 /* Contact page */
