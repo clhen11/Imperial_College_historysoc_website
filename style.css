@@ -1,8 +1,12 @@
 @font-face {
-  font-family: "Horrible Histories font";
-  src: url("fonts/Horrible Histories Font Extended 4.ttf") format("truetype");
+  font-family: "Horrible Histories Font"; /* normalized name */
+  src:
+    url("fonts/Horrible Histories Font Extended 4.woff2") format("woff2"),
+    url("fonts/Horrible Histories Font Extended 4.woff") format("woff"),
+    url("fonts/Horrible Histories Font Extended 4.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 html, body {
@@ -109,7 +113,7 @@ nav a {
 }
 
 body {
-  background-image: url('images/Imperial_Institute.jpg');
+  background-image: url('images/Imperial_Institute.jpg?v=20250929');
   background-size: cover;    
   background-position: top center; 
   background-repeat: no-repeat;
