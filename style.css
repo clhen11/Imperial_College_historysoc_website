@@ -631,40 +631,8 @@ footer {
 
 /* for different screen sizes */
 
-/* Tablet */
-
-@media (max-width: 992px) {
-  .content {
-    grid-template-columns: 2fr 1fr; /* Adjust ratio */
-    margin: 0 3%; /* Reduce side margins */
-    padding: 1.5rem;
-  }
-  
-  header {
-    width: 100%;    
-    max-width: 100%;  
-  }
-
-  header h1 {
-    font-size: 1.8rem; /* Smaller heading */
-    transform: none; /* reset desktop vertical shift */
-    line-height: 1.1;
-  }
-  
-  .main-nav {
-    gap: 60px; /* Reduce gap between nav items */
-  }
-
-  footer {
-    width: 100%;    
-    max-width: 100%; 
-    font-size: 0.8rem; /* shrink text a bit on phones */
-    padding: 1rem;
-  }
-}
-
 /* phones */
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   body {
     font-size: 1rem;
     margin: 0;
