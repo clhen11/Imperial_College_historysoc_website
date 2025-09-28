@@ -667,15 +667,16 @@ footer {
     margin: 0; /* avoid pushing the title down */
   }
 
-  /* Mobile-specific adjustable offset */
-  :root { --title-shift-mobile: -100px; }
+  /* Mobile-specific adjustable offset (keep modest to avoid moving off-screen) */
+  :root { --title-shift-mobile: -12px; }
 
   .top-bar h1 {
     font-size: clamp(0.9rem, 4.5vw, 1.1rem);
     text-align: center;
     margin: 0 0.5rem;
     flex: 1 1 0;
-    transform: translateY(var(--title-shift-mobile, 0px));
+  /* Clamp the shift so it can't push the title outside the header */
+  transform: translateY(clamp(-24px, var(--title-shift-mobile, 0px), 24px));
     line-height: 1.05;
     letter-spacing: -0.2px;  /* tighten to reduce wrapping */
     min-width: 0;            /* allow flex child to shrink */
