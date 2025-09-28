@@ -11,6 +11,14 @@ html, body {
   flex-direction: column; 
 }
 
+/* Adjustable title offsets (tweak these to move the header title up/down) */
+:root {
+  --title-shift-desktop: -280px; /* negative moves up */
+  /* Logo offsets (negative X = left, negative Y = up) */
+  --logo-shift-x: 0px;
+  --logo-shift-y: 0px;
+}
+
 main {
   flex: 1;  /*push footer down */
 }
@@ -72,6 +80,7 @@ header {
   max-width: 120px;
   height: auto;
   margin-right: 10px;
+  transform: translate(var(--logo-shift-x, 0px), var(--logo-shift-y, 0px));
 }
 
 /* IMPERIAL COLLEGE HISTORY SOCIETY  */
@@ -84,7 +93,7 @@ header h1 {
     font-size: 3.2rem; 
     line-height: 1.2; /* tighter line height */
     padding: 0;
-    transform: translateY(-280px); /* adjust vertical position (cuz tall font) */
+  transform: translateY(var(--title-shift-desktop, -280px)); /* adjust vertical position */
 }
 
 nav a {
@@ -146,9 +155,12 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.menu-container:hover .dropdown {
-  display: block;         /* show on hover */
+/* Allow JS toggle via .show on all screen sizes */
+.dropdown.show {
+  display: block;
 }
+
+/* Removed hover-based dropdown display; rely on JS toggle for better usability */
 
 .dropdown a {
   display: block;
@@ -634,8 +646,9 @@ footer {
   }
 
   header h1 {
-    font-size: 1.5rem; /* Smaller heading */
-    transform: translateY(-90px); 
+    font-size: 1.8rem; /* Smaller heading */
+    transform: none; /* reset desktop vertical shift */
+    line-height: 1.1;
   }
   
   .main-nav {
@@ -666,18 +679,28 @@ footer {
     gap: 0.5rem;
   }
 
+  /* Mobile: set a small default shift further up and left; tweak as needed */
+  :root {
+    --logo-shift-x: -8px;  /* left */
+    --logo-shift-y: -10px; /* up */
+  }
+
   #logo {
     width: 40px;
     height: auto;
-    margin-bottom: 8px;
+    margin: 0; /* avoid pushing the title down */
   }
 
+  /* Mobile-specific adjustable offset */
+  :root { --title-shift-mobile: -100px; }
+
   .top-bar h1 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: center;
     margin: 0 0.5rem;
     flex: 1;
-    transform: translateY(-30px);
+    transform: translateY(var(--title-shift-mobile, -200px)); /* tweak this value if needed */
+    line-height: 1.1;
   }
 
   .menu-container {
@@ -689,7 +712,7 @@ footer {
     font-size: 2rem;
     background: none;
     border: none;
-    color: #002147;
+    color: #ffffff; /* ensure visible on dark header */
     cursor: pointer;
     margin-left: 0.5rem;
   }
@@ -697,7 +720,7 @@ footer {
   .dropdown {
     position: absolute;
     right: 0;
-    top: 48px;
+    top: 100%; /* attach directly under the hamburger */
     background: #fff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     border-radius: 6px;
