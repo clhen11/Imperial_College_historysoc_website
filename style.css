@@ -11,6 +11,9 @@ html, body {
   flex-direction: column; 
 }
 
+/* Prevent iOS Safari from auto-zooming which can change layout/wrapping */
+html { -webkit-text-size-adjust: 100%; }
+
 /* Adjustable title offsets (tweak these to move the header title up/down) */
 :root {
   --title-shift-desktop: -280px; /* negative moves up */
@@ -93,7 +96,7 @@ header h1 {
     font-size: 3.2rem; 
     line-height: 1.2; /* tighter line height */
     padding: 0;
-  transform: translateY(var(--title-shift-desktop, -280px)); /* adjust vertical position */
+  transform: translateY(var(--title-shift-desktop, 0px)); /* adjust vertical position */
 }
 
 nav a {
@@ -142,6 +145,11 @@ body {
   color: white;
   cursor: pointer;
   z-index: 1000;
+  position: relative;          /* ensure z-index takes effect */
+  width: 44px; height: 44px;   /* consistent tap target */
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+  flex: 0 0 auto;
 }
 
 .dropdown {
@@ -663,26 +671,33 @@ footer {
   :root { --title-shift-mobile: -100px; }
 
   .top-bar h1 {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 4.5vw, 1.1rem);
     text-align: center;
     margin: 0 0.5rem;
-    flex: 1;
-    transform: translateY(var(--title-shift-mobile, -200px)); /* tweak this value if needed */
-    line-height: 1.1;
+    flex: 1 1 0;
+    transform: translateY(var(--title-shift-mobile, 0px));
+    line-height: 1.05;
+    letter-spacing: -0.2px;  /* tighten to reduce wrapping */
+    min-width: 0;            /* allow flex child to shrink */
+    overflow: visible;       /* ensure it doesn't get clipped out */
+    display: block;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+    overflow-wrap: anywhere;
   }
 
   .menu-container {
     position: relative;
     z-index: 1001;
+    flex: 0 0 auto; /* don't let it shrink */
   }
 
   .hamburger {
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: #ffffff; /* ensure visible on dark header */
-    cursor: pointer;
+    font-size: 1.8rem; /* slightly smaller to reduce overlap */
+    color: #ffffff;
     margin-left: 0.5rem;
+    z-index: 1002;  /* above title */
   }
 
   .dropdown {
@@ -723,6 +738,7 @@ footer {
     gap: 0;
     background: #002147;
     padding: 0.5rem 1rem;
+    margin-top: 0; /* override desktop negative margin to prevent overlap */
   }
   .main-nav a {
     padding: 10px 0;
