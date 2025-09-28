@@ -791,3 +791,23 @@ footer {
   background: #002147;
   gap: 1rem;
 }
+
+/* Mobile override (placed at end to win against base .top-bar) */
+@media (max-width: 768px) {
+  :root { --title-shift-mobile: 0px; }
+
+  .top-bar {
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem !important;
+    gap: 0.5rem;
+    min-height: 56px; /* matches 44px tap target with padding */
+  }
+
+  .top-bar h1 {
+    margin: 0 0.5rem;
+    line-height: 1.05;
+    transform: translateY(var(--title-shift-mobile, 0px));
+    display: block;
+  }
+}
