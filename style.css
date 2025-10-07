@@ -1,5 +1,18 @@
 @font-face {
-  font-family: "Horrible Histories Font"; /* normalized name */
+  font-family: "Horrible Histories font"; /* revert to original name to match prior visuals */
+  src:
+    url("fonts/Horrible Histories Font Extended 4.woff2") format("woff2"),
+    url("fonts/Horrible Histories Font Extended 4.woff") format("woff"),
+    url("fonts/Horrible Histories Font Extended 4.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Non-visual compatibility: also expose the font under the 'Font' name
+   that header h1 references, so both map to the same file. */
+@font-face {
+  font-family: "Horrible Histories Font";
   src:
     url("fonts/Horrible Histories Font Extended 4.woff2") format("woff2"),
     url("fonts/Horrible Histories Font Extended 4.woff") format("woff"),
@@ -20,7 +33,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 /* Adjustable title offsets (tweak these to move the header title up/down) */
 :root {
-  --title-shift-desktop: -280px; /* negative moves up */
+  --title-shift-desktop: -280px; /* restore previous position */
   /* Logo offsets (negative X = left, negative Y = up) */
   --logo-shift-x: 0px;
   --logo-shift-y: 0px;
@@ -32,7 +45,7 @@ main {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* revert to original body font */
   display: flex;
   flex-direction: column; 
   min-height: 100vh;
@@ -100,7 +113,7 @@ header h1 {
     font-size: 3.2rem; 
     line-height: 1.2; /* tighter line height */
     padding: 0;
-  transform: translateY(var(--title-shift-desktop, 0px)); /* adjust vertical position */
+  transform: translateY(var(--title-shift-desktop, 0px)); /* revert to original behavior */
 }
 
 nav a {
@@ -124,7 +137,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 100px;
-  margin-top: -2.5rem;
+  margin-top: -2.5rem; /* restore original spacing */
 }
 
 .main-nav a {
