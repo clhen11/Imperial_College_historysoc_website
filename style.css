@@ -37,6 +37,8 @@ html { -webkit-text-size-adjust: 100%; }
   /* Logo offsets (negative X = left, negative Y = up) */
   --logo-shift-x: 0px;
   --logo-shift-y: 0px;
+  /* Small upward nudge for the image title (negative moves up) */
+  --site-title-nudge-y: -20px;
 }
 
 main {
@@ -58,11 +60,39 @@ header {
   padding: 0.5rem 1rem;
   grid-column: 1 / -1;
   min-height: 100px;   /* ✅ minimum height */
-  height: auto;    
+  height: auto;
+  position: relative;    
 }
 
-header {
+header h1.site-title {
+  transform: none !important;     
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  line-height: 1;
+  flex: 1 1 auto;                 /*centering between logo and menu */
   position: relative;
+  top: var(--site-title-nudge-y, 0px);
+}
+
+header h1.site-title img {
+  display: block;
+  width: auto;                    /* keep intrinsic width */
+  height: auto;
+  max-width: min(100vw, 1000px);    /* never exceed viewport */
+  max-height: 100px;             
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .top-bar h1.site-title {
+    transform: none !important;
+  }
+  .top-bar h1.site-title img {
+    max-width: 95vw;
+    max-height: 76px;
+  }
 }
 
 /* HOMEPAGE */
