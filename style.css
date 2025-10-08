@@ -28,7 +28,6 @@ html, body {
   flex-direction: column; 
 }
 
-/* Prevent iOS Safari from auto-zooming which can change layout/wrapping */
 html { -webkit-text-size-adjust: 100%; }
 
 /* Adjustable title offsets (tweak these to move the header title up/down) */
@@ -90,8 +89,8 @@ header h1.site-title img {
     transform: none !important;
   }
   .top-bar h1.site-title img {
-    max-width: 95vw;
-    max-height: 76px;
+    max-width: 70vw;
+    max-height: 56px;
   }
 }
 
